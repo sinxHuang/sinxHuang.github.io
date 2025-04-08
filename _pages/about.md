@@ -55,4 +55,3 @@ School of Information and Communication Engineering, University of Electronic Sc
 *International Conference on Display Technology (ICDT 2025)*
 
 <hr>
-[📄 Download My CV (Latest Version)](/files/Xuan_Huang_CV.pdf?v=20250408){:target="_blank"}
