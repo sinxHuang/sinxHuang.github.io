@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-Xuan Huang is an undergraduate student 🎓 majoring in Communication Engineering at the University of Electronic Science and Technology of China, expected to graduate in June 2026. She is currently applying for her master’s or Ph.D. degree 📝. Her research interests include embodied intelligence 🤖, wearable systems 🩻, and AI for Science (AI4Science) 🧪.
+Xuan Huang is an undergraduate student 🎓 majoring in Communication Engineering at the [University of Electronic Science and Technology of China](https://www.uestc.edu.cn/), expected to graduate in June 2026. She is currently applying for her master’s or Ph.D. degree 📝. Her research interests include embodied intelligence 🤖, wearable systems 🩻, and AI for Science (AI4Science) 🧪.
 
 <hr>
 
@@ -17,13 +17,13 @@ Xuan Huang is an undergraduate student 🎓 majoring in Communication Engineerin
 * Developed a self-sustained emotion recognition system integrating EEG, speech, and text signals, powered by flexible organic photovoltaics (OPV). 
 * Designed a multimodal fusion model combining TMBL and Vision Transformer frameworks, and implemented a complete IoT architecture with ESP32-based acquisition, Huawei Cloud for data storage and Alibaba Cloud for backend model deployment, and WeChat Mini Program frontend.
 
-**Highlights**: ICDT 2025 paper accepted; National First Prize in Huawei IoT Design Competition.
+***Highlights**: ICDT 2025 paper accepted; National First Prize in Huawei IoT Design Competition.*
 
 **Tunable Structural Color Based on Multilayer Films ｜ Dec. 2023 – Aug. 2024**  
 * Designed Fabry–Pérot cavities with phase-change GST films for temperature-driven color modulation. 
 * Built a reflectance prediction model using transfer matrix method and optimized multilayer configurations via MATLAB simulations.  
 
-**Highlights**: Rated Excellent in National Innovation and Entrepreneurship Program.
+***Highlights**: Rated Excellent in National Innovation and Entrepreneurship Program.*
 
 **Energy Efficiency Optimization for Mobile Antennas ｜ Dec. 2024 – Present**  
 * Investigated dynamic energy efficiency optimization for motor-driven antennas. 
@@ -45,7 +45,7 @@ Xuan Huang is an undergraduate student 🎓 majoring in Communication Engineerin
 <h2 id="education">📖 Education</h2>
 
 * 2022.09 – 2026.06 (Expected), B.S. Candidate in Communication Engineering,  
-School of Information and Communication Engineering, University of Electronic Science and Technology of China
+[School of Information and Communication Engineering](https://www.sice.uestc.edu.cn/), [University of Electronic Science and Technology of China](https://www.uestc.edu.cn/)
 
 <hr>
 
