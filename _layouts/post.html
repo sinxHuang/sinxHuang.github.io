@@ -1,0 +1,97 @@
+---
+layout: default
+---
+
+<div class="row">
+    <div class="col-lg-9">
+        <div class="card border-0 shadow-sm bg-white">
+            <div class="card-body p-4 p-md-5">
+                <h2 class="mb-2">{{ page.title }}</h2>
+                <div class="post-meta text-muted mb-2">
+                    {{ page.date | date: "%b %-d, %Y" }}
+                </div>
+                {% if page.tags and page.tags.size > 0 %}
+                <div class="post-tags mb-3">
+                    {% for tag in page.tags %}
+                        <span class="badge border post-tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <hr />
+                <div class="post-content" id="post-content">
+                    {{ content }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside class="col-lg-3 d-none d-lg-block">
+        <div class="card border-0 shadow-sm bg-white post-toc-card">
+            <div class="card-body p-3">
+                <div class="post-toc-title">On This Page</div>
+                <nav id="post-toc" class="post-toc-nav"></nav>
+            </div>
+        </div>
+    </aside>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var content = document.getElementById("post-content");
+    var toc = document.getElementById("post-toc");
+    if (!content || !toc) return;
+
+    var headings = Array.prototype.slice.call(content.querySelectorAll("h2, h3"));
+    if (!headings.length) {
+        toc.innerHTML = '<div class="text-muted small">No sections</div>';
+        return;
+    }
+
+    var links = [];
+    var usedIds = {};
+
+    headings.forEach(function (heading) {
+        var text = (heading.textContent || "").trim();
+        if (!text) return;
+
+        if (!heading.id) {
+            var base = text.toLowerCase()
+                .replace(/[^\w\u4e00-\u9fa5\- ]+/g, "")
+                .trim()
+                .replace(/\s+/g, "-");
+            if (!base) base = "section";
+
+            var id = base;
+            var suffix = 2;
+            while (document.getElementById(id) || usedIds[id]) {
+                id = base + "-" + suffix;
+                suffix += 1;
+            }
+            heading.id = id;
+            usedIds[id] = true;
+        }
+
+        var link = document.createElement("a");
+        link.href = "#" + heading.id;
+        link.textContent = text;
+        link.className = "post-toc-link " + (heading.tagName === "H3" ? "toc-level-3" : "toc-level-2");
+        toc.appendChild(link);
+        links.push({ heading: heading, link: link });
+    });
+
+    function updateActive() {
+        var current = links[0] ? links[0].heading.id : "";
+        var offset = window.scrollY + 130;
+        links.forEach(function (item) {
+            if (item.heading.offsetTop <= offset) {
+                current = item.heading.id;
+            }
+        });
+        links.forEach(function (item) {
+            item.link.classList.toggle("active", item.heading.id === current);
+        });
+    }
+
+    window.addEventListener("scroll", updateActive, { passive: true });
+    updateActive();
+});
+</script>

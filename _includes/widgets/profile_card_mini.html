@@ -2,20 +2,25 @@
     <div class="col">
         <div class="card border-0 shadow-sm bg-white">
             <div class="card-body px-4 pt-4 pb-3">
+                {%- if site.data.profile.portrait_url contains '://' -%}
+                    {%- assign portrait_src = site.data.profile.portrait_url -%}
+                {%- else -%}
+                    {%- assign portrait_src = site.data.profile.portrait_url | relative_url -%}
+                {%- endif -%}
                 <div class="row">
                     <div class="col">
                         {% if site.data.profile.portrait_url %}
                         <!-- When the screen is wider than md, float the portrait on the right -->
                         <div class="figure d-none d-md-block">
                             <img 
-                                src="{{ site.data.profile.portrait_url | relative_url }}" 
+                                src="{{ portrait_src }}" 
                                 class="figure-img img-fluid" 
                                 data-toggle="tooltip" 
                                 data-placement="top" 
                                 title="{{ site.data.profile.portrait_caption }}">
                         </div>
                         <div class="mb-3 d-md-none text-center">
-                            <img src="{{ site.data.profile.portrait_url | relative_url }}" class="rounded-circle" style="max-width: 50%;" alt="Portrait">
+                            <img src="{{ portrait_src }}" class="rounded-circle" style="max-width: 50%;" alt="Portrait">
                         </div>
                         {% endif %}
                     </div>
@@ -29,6 +34,14 @@
                 <div class="row small">
                     <div class="col text-center">
                         {% for position in site.data.profile.positions %}
+                        {% if position.logo -%}
+                        {% if position.logo contains '://' -%}
+                        {% assign position_logo_src = position.logo -%}
+                        {%- else -%}
+                        {% assign position_logo_src = position.logo | relative_url -%}
+                        {%- endif %}
+                        <img src="{{ position_logo_src }}" alt="Logo" class="inline-badge logo-on-white"/>
+                        {%- endif %}
                         {{ position.name }}<br/>
                         {% endfor %}
                     </div>
@@ -58,6 +71,12 @@
                         {% if site.data.profile.github %}
                         <a class="px-1 no-break" target="_blank" href="https://github.com/{{ site.data.profile.github }}">
                             <i class="fab fa-github"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if site.data.profile.rednote %}
+                        <a class="px-1 no-break" target="_blank" href="{{ site.data.profile.rednote }}" title="Rednote">
+                            <i class="fas fa-book-open"></i>
                         </a>
                         {% endif %}
 

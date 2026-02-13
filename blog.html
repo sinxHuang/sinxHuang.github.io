@@ -1,0 +1,38 @@
+---
+layout: default
+title: Blog
+navbar_title: Blog
+permalink: /blog/
+---
+
+<div class="row">
+    <div class="col">
+        <div class="card border-0 shadow-sm bg-white">
+            <div class="card-body p-4">
+                <h4 class="mb-3">Blog</h4>
+                {% assign published_posts = site.posts | where_exp: "post", "post.date <= site.time" | sort: "date" | reverse %}
+                {% if published_posts.size > 0 %}
+                    <div>
+                        {% for post in published_posts %}
+                        <article class="py-3 {% unless forloop.last %}border-bottom border-gray{% endunless %}">
+                            <h5 class="mb-1">
+                                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                            </h5>
+                            <div class="small text-muted mb-2">{{ post.date | date: "%b %-d, %Y" }}</div>
+                            <div>
+                                {% if post.description %}
+                                    {{ post.description }}
+                                {% else %}
+                                    {{ post.excerpt | strip_html | truncate: 180 }}
+                                {% endif %}
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="text-muted mb-0">No blog posts yet.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
