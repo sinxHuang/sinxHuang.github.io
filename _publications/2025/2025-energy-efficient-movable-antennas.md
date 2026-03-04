@@ -5,7 +5,7 @@ selected:       true
 pub:            "arXiv"
 pub_date:       "2025"
 abstract: >-
-  This work studies energy-efficient movable antenna systems with mechanical power modeling and performance optimization under realistic motor dynamics.
+
 cover:          /assets/images/covers/2025-energy-efficient-movable-antennas.png
 authors:
   - X. Wei

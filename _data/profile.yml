@@ -30,10 +30,11 @@ short_bio: >-
   </p>
   <p>
     🔎 Currently, my research interests focus on
-    <span class="profile-accent">⚡ acceleration for multimodal large models, especially efficient token compression</span>.
+    ⚡ <span class="profile-accent">acceleration for multimodal large models</span>, especially
+    <span class="profile-accent">efficient token compression</span>.
   </p>
   <p>
-    💬 Outside research, I enjoy 📖 reading, 🎸 listening to music, and 🎮 playing RPG and AVG games.
+    💬 Outside research, I enjoy 📖 reading, 🎸 listening to music, and 🎮 playing RPG/AVG games.
   </p>
 
 portrait_url: https://avatars.githubusercontent.com/u/172581617?v=4
@@ -53,7 +54,7 @@ education:
 awards:
 - name: Outstanding Graduate of Sichuan Province (Top 4%)
   date: 2025
-- name: Tencent First-Class Scholarship (CNY 10,000)
+- name: Tencent First-Class Scholarship
   date: 2025
-- name: National Scholarship (Top 1.5%, CNY 10,000)
+- name: National Scholarship (Top 1.5%)
   date: 2024

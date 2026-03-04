@@ -15,7 +15,7 @@ permalink: /blog/
                     <div>
                         {% for post in published_posts %}
                         <article class="py-3 {% unless forloop.last %}border-bottom border-gray{% endunless %}">
-                            <h5 class="mb-1">
+                            <h5 class="mb-1 blog-title">
                                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
                             </h5>
                             <div class="small text-muted mb-2">{{ post.date | date: "%b %-d, %Y" }}</div>

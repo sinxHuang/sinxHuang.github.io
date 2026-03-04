@@ -5,7 +5,7 @@ selected:       true
 pub:            "International Conference on Display Technology (ICDT)"
 pub_date:       "2025"
 abstract: >-
-  We developed a self-sustained speech interaction system powered by organic photovoltaic devices for speech-to-text and GPT-based communication.
+
 cover:          /assets/images/covers/2025-icdt-opv-speech.png
 authors:
   - X. Huang
