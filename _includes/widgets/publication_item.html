@@ -1,30 +1,43 @@
 {% assign item = include.item %}
 <div class="publication-paper-card {% if include.first %}rounded-xl-top{% endif %} {% if include.last %}rounded-xl-bottom{% endif %}">
-    <h5 class="mt-0 mb-2 publication-title">{{ item.title }}</h5>
-    <p class="mb-2 publication-authors">{% include widgets/author_list.html authors=item.authors %}</p>
-    <p class="mb-2 publication-venue">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span></p>
-    <p class="mb-3 text-muted publication-abstract">{{ item.abstract }}</p>
+    <div class="publication-paper-media">
+        <div class="publication-thumb-wrap">
+            {%- if item.cover -%}
+            <img data-src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="publication-thumb lazy" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
+            {%- else -%}
+            <svg class="bubble-visual-hash publication-thumb lazy" data-bubble-visual-hash="{{ item.id }}" viewBox="0 0 300 200"></svg>
+            {%- endif -%}
+        </div>
 
-    <div class="publication-actions">
-        {% for link in item.links %}
-            {% assign link_label = link[0] | downcase %}
-            {% if link[1].url %}
-                <a class="btn publication-link-btn" target="{{ link[1]['target'] }}" href="{{ link[1]['url'] }}">
-                    {% if link_label contains 'pdf' %}
-                    <i class="far fa-file-alt"></i> {{ link[0] }}
-                    {% else %}
-                    <i class="fas fa-link"></i> {{ link[0] }}
-                    {% endif %}
-                </a>
-            {% else %}
-                <a class="btn publication-link-btn" target="_blank" href="{{ link[1] }}">
-                    {% if link_label contains 'pdf' %}
-                    <i class="far fa-file-alt"></i> {{ link[0] }}
-                    {% else %}
-                    <i class="fas fa-link"></i> {{ link[0] }}
-                    {% endif %}
-                </a>
-            {% endif %}
-        {% endfor %}
+        <div class="publication-main">
+            <h5 class="mt-0 mb-2 publication-title">{{ item.title }}</h5>
+            <p class="mb-2 publication-authors">{% include widgets/author_list.html authors=item.authors %}</p>
+            <div class="publication-meta-actions mb-2">
+                <p class="mb-0 publication-venue">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span></p>
+                <div class="publication-actions">
+                    {% for link in item.links %}
+                        {% assign link_label = link[0] | downcase %}
+                        {% if link[1].url %}
+                            <a class="btn publication-link-btn" target="{{ link[1]['target'] }}" href="{{ link[1]['url'] }}">
+                                {% if link_label contains 'pdf' %}
+                                <i class="far fa-file-alt"></i> {{ link[0] }}
+                                {% else %}
+                                <i class="fas fa-link"></i> {{ link[0] }}
+                                {% endif %}
+                            </a>
+                        {% else %}
+                            <a class="btn publication-link-btn" target="_blank" href="{{ link[1] }}">
+                                {% if link_label contains 'pdf' %}
+                                <i class="far fa-file-alt"></i> {{ link[0] }}
+                                {% else %}
+                                <i class="fas fa-link"></i> {{ link[0] }}
+                                {% endif %}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <p class="mb-3 text-muted publication-abstract">{{ item.abstract }}</p>
+        </div>
     </div>
 </div>
