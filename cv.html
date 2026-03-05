@@ -1,0 +1,36 @@
+---
+layout: default
+title: CV
+navbar_title: CV
+permalink: /cv/
+---
+
+<div class="row">
+    <aside class="col-lg-3 mb-3 mb-lg-0">
+        {% include widgets/left_sidebar_profile.html %}
+    </aside>
+
+    <div class="col-lg-9">
+        <div class="cv-viewer-card">
+            <h2 class="mb-2">Welcome to my CV!</h2>
+            <p class="text-muted mb-3"><i>Last update: 2025.9.11</i></p>
+
+            <div class="cv-toolbar mb-3">
+                <a class="btn cv-btn cv-btn-primary" href="{{ site.data.profile.cv_link | relative_url }}" download>
+                    <i class="fas fa-download"></i> Download CV (PDF)
+                </a>
+                <a class="btn cv-btn cv-btn-secondary" target="_blank" href="{{ site.data.profile.cv_link | relative_url }}">
+                    <i class="fas fa-external-link-alt"></i> Open in new tab
+                </a>
+            </div>
+
+            <div class="cv-embed-shell">
+                <iframe
+                    class="cv-embed"
+                    src="{{ site.data.profile.cv_link | relative_url }}#zoom=page-width"
+                    title="CV Preview">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>

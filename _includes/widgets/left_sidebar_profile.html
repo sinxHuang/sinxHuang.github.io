@@ -1,0 +1,56 @@
+{%- if site.data.profile.portrait_url contains '://' -%}
+    {%- assign portrait_src = site.data.profile.portrait_url -%}
+{%- else -%}
+    {%- assign portrait_src = site.data.profile.portrait_url | relative_url -%}
+{%- endif -%}
+
+<aside class="left-profile-sidebar sticky-top" style="top: 88px;">
+    <div class="left-profile-panel">
+        {% if site.data.profile.portrait_url %}
+        <div class="left-profile-avatar-wrap">
+            <img src="{{ portrait_src }}" alt="Portrait" class="left-profile-avatar">
+        </div>
+        {% endif %}
+
+        <h4 class="left-profile-name mb-1">{{ site.data.profile.primary_name }}</h4>
+
+        {% if site.data.profile.positions and site.data.profile.positions.size > 0 %}
+        <p class="left-profile-subtitle mb-3">{{ site.data.profile.positions[0].name }}</p>
+        {% endif %}
+
+        <div class="left-profile-links">
+            <a class="left-profile-link" href="mailto:{{ site.data.profile.email | encode_email }}">
+                <i class="fas fa-at"></i> {{ site.data.profile.email | replace: "@", "(at)" }}
+            </a>
+
+            {% if site.data.profile.gscholar %}
+            {%- if site.data.profile.gscholar contains 'scholar.google' -%}
+            {%- assign gscholar_url = site.data.profile.gscholar -%}
+            {%- else -%}
+            {%- assign gscholar_url = 'https://scholar.google.com/citations?user=' | append: site.data.profile.gscholar -%}
+            {%- endif -%}
+            <a class="left-profile-link" target="_blank" href="{{ gscholar_url }}">
+                <i class="fab fa-google-scholar"></i> Google Scholar
+            </a>
+            {% endif %}
+
+            {% if site.data.profile.github %}
+            <a class="left-profile-link" target="_blank" href="https://github.com/{{ site.data.profile.github }}">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            {% endif %}
+
+            {% if site.data.profile.orcid %}
+            <a class="left-profile-link" target="_blank" href="https://orcid.org/{{ site.data.profile.orcid }}">
+                <i class="fab fa-orcid"></i> ORCID
+            </a>
+            {% endif %}
+
+            {% if site.data.profile.rednote %}
+            <a class="left-profile-link" target="_blank" href="{{ site.data.profile.rednote }}">
+                <i class="fas fa-book-open"></i> Rednote
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</aside>
