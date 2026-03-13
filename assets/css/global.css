@@ -19,6 +19,10 @@
     --grid-color: rgba(80, 114, 180, 0.08);
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
 html[data-theme="dark"] {
     --bg-color: #030917;
     --text-color: #dce7ff;
@@ -400,13 +404,19 @@ html[data-theme="dark"] .profile-action-btn {
 }
 
 .cv-viewer-card {
+    width: 100%;
     border: 1px solid var(--card-border);
     border-radius: 1rem;
-    padding: 1rem 1rem 1.15rem;
+    padding: 0.9rem;
     background: linear-gradient(160deg, var(--card-bg) 0%, var(--card-bg-deep) 100%);
     box-shadow:
         0 12px 28px var(--card-shadow),
         0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+}
+
+.cv-page-intro h2 {
+    margin-top: 0;
+    line-height: 1.08;
 }
 
 .cv-toolbar {
@@ -452,6 +462,8 @@ html[data-theme="dark"] .profile-action-btn {
     padding: 0;
     overflow: hidden;
     background: transparent;
+    width: min(100%, 1240px);
+    margin: 0 auto;
 }
 
 .cv-embed {
@@ -670,6 +682,10 @@ h6 i,
 }
 
 .blog-section h2 i {
+    color: var(--neon-pink);
+}
+
+.cv-page-intro h2 i {
     color: var(--neon-pink);
 }
 
