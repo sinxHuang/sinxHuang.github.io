@@ -42,7 +42,7 @@
                             {%- else -%}
                             {% assign position_logo_src = position.logo | relative_url -%}
                             {%- endif %}
-                            <img src="{{ position_logo_src }}" alt="Logo" class="inline-badge logo-on-white"/>
+                            <img src="{{ position_logo_src }}" alt="Logo" class="inline-badge position-logo-badge"/>
                             {%- endif %}
                             {{ position.name }}<br/>
                             {% endfor %}

@@ -9,13 +9,13 @@
                             <h6>Education</h6>
                             <ul class="list-unstyled mb-1">
                                 {% for item in site.data.profile.education %}
-                                <li class="media mb-1">
+                                <li class="media mb-1 align-items-center">
                                     {% if item.logo contains '://' -%}
                                     {% assign edu_logo_src = item.logo -%}
                                     {%- else -%}
                                     {% assign edu_logo_src = item.logo | relative_url -%}
                                     {%- endif %}
-                                    <img src="{{ edu_logo_src }}" alt="{{ item.name }}" class="mr-1 mt-1 edu-logo-badge logo-on-white">
+                                    <img src="{{ edu_logo_src }}" alt="{{ item.name }}" class="mr-1 edu-logo-badge">
                                     <div class="media-body">
                                         <div>{{ item.name }}</div>
                                         <div class="small">{{ item.dept }}</div>
@@ -28,25 +28,23 @@
                                 {% endfor %}
                             </ul>
                         </div>
-                    </div>
-                    {% endif %}
-
-                    {% if site.data.profile.experience %}
-                    <div class="col-lg-6">
-                        <div class="mx-2 my-1">
+                        {% if site.data.profile.experience %}
+                        <div class="mx-2 mt-3 mb-1">
                             <h6>Experience</h6>
                             <ul class="list-unstyled mb-1">
                                 {% for item in site.data.profile.experience %}
-                                <li class="media mb-1">
+                                <li class="media mb-1 align-items-center">
                                     {% if item.logo contains '://' -%}
                                     {% assign exp_logo_src = item.logo -%}
                                     {%- else -%}
                                     {% assign exp_logo_src = item.logo | relative_url -%}
                                     {%- endif %}
-                                    <img src="{{ exp_logo_src }}" alt="{{ item.name }}" style="width: 18px;" class="mr-1 mt-1">
+                                    <img src="{{ exp_logo_src }}" alt="{{ item.name }}" class="mr-1 experience-logo-badge">
                                     <div class="media-body">
                                         <div>{{ item.name }}</div>
+                                        {% if item.dept %}
                                         <div class="small">{{ item.dept }}</div>
+                                        {% endif %}
                                         <div class="small d-flex">
                                             <div>{{ item.position }}</div>
                                             <div class="mt-auto ml-auto no-break"><em>{{ item.date }}</em></div>
@@ -56,6 +54,7 @@
                                 {% endfor %}
                             </ul>
                         </div>
+                        {% endif %}
                     </div>
                     {% endif %}
 

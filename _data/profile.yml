@@ -43,17 +43,27 @@ portrait_caption: >-
 education:
 - name: Shanghai Jiao Tong University
   logo: https://cdn.urongda.com//images/normal/medium/shanghai-jiao-tong-university-logo-1024px.png
-  position: Ph.D. in Electronic Information Engineering
+  position: Ph.D. in Electronic and Information Engineering
   date: Sep. 2026 - Jun. 2031 (Expected)
 - name: University of Electronic Science and Technology of China
   logo: https://cdn.urongda.com//images/normal/medium/university-of-electronic-science-and-technology-of-china-logo-1024px.png
   position: B.S. in Communication Engineering
   date: Sep. 2022 - Jun. 2026 (Expected)
 
+experience:
+- name: Ant Group
+  logo: /assets/images/logos/ant-group.png
+  position: Research Intern
+  date: Mar. 2026 - Present
+
 awards:
 - name: Outstanding Graduate of Sichuan Province (Top 4%)
   date: 2025
-- name: Tencent First-Class Scholarship
+- name: Tencent First-Class Scholarship (UESTC Alumni Scholarship)
   date: 2025
+- name: National IoT Design Competition, National 1st Prize
+  date: 2024
+- name: Contemporary Undergraduate Mathematical Contest in Modeling (CUMCM), National 2nd Prize
+  date: 2024
 - name: National Scholarship (Top 1.5%)
   date: 2024

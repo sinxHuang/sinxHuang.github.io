@@ -10,8 +10,13 @@
             <div class="media-body">
                 {% for item in year.items %}
                 <div class="my-2 d-flex">
-                    <div class="news-item-title">{{ item.title }}</div>
-                    <div class="ml-auto mt-auto text-muted no-break"><i>{{ item.date | date: "%b %d" }}</i></div>
+                    <div class="news-item-title">
+                        {% if item.category %}
+                        <span class="news-prefix">[{{ item.category }}]</span>
+                        {% endif %}
+                        <span class="news-title-text">{{ item.title }}</span>
+                    </div>
+                    <div class="ml-auto mt-auto text-muted no-break"><i>{{ item.date | date: "%b" }}</i></div>
                 </div>
                 {% endfor %}
             </div>
