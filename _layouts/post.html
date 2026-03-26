@@ -40,17 +40,35 @@ document.addEventListener("DOMContentLoaded", function () {
     var toc = document.getElementById("post-toc");
     if (!content || !toc) return;
 
-    var headings = Array.prototype.slice.call(content.querySelectorAll("h2, h3"));
+    var headings = Array.prototype.slice.call(content.querySelectorAll("h1, h2, h3"));
     if (!headings.length) {
         toc.innerHTML = '<div class="text-muted small">No sections</div>';
         return;
     }
 
     var links = [];
+    var groups = [];
     var usedIds = {};
+    var currentGroup = null;
+    var activeHeadingId = "";
+
+    function normalizeHeadingText(text) {
+        return (text || "")
+            .replace(/\s*\((?:P?\d[\d\s,~\-]*)\)\s*$/u, "")
+            .replace(/\s*\*+\s*$/u, "")
+            .replace(/\s+/g, " ")
+            .trim();
+    }
+
+    function setGroupExpanded(group, expanded) {
+        if (!group || !group.root || !group.toggle) return;
+        group.root.classList.toggle("collapsed", !expanded);
+        group.toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+    }
 
     headings.forEach(function (heading) {
-        var text = (heading.textContent || "").trim();
+        var rawText = (heading.textContent || "").trim();
+        var text = normalizeHeadingText(rawText);
         if (!text) return;
 
         if (!heading.id) {
@@ -73,22 +91,93 @@ document.addEventListener("DOMContentLoaded", function () {
         var link = document.createElement("a");
         link.href = "#" + heading.id;
         link.textContent = text;
-        link.className = "post-toc-link " + (heading.tagName === "H3" ? "toc-level-3" : "toc-level-2");
-        toc.appendChild(link);
-        links.push({ heading: heading, link: link });
+        var levelClass = "toc-level-2";
+        if (heading.tagName === "H1") levelClass = "toc-level-1";
+        if (heading.tagName === "H3") levelClass = "toc-level-3";
+        link.className = "post-toc-link " + levelClass;
+
+        var groupForItem = currentGroup;
+
+        if (heading.tagName === "H1") {
+            var group = document.createElement("section");
+            group.className = "post-toc-group";
+
+            var header = document.createElement("div");
+            header.className = "post-toc-group-header";
+
+            var toggle = document.createElement("button");
+            toggle.type = "button";
+            toggle.className = "post-toc-group-toggle";
+            toggle.setAttribute("aria-label", "Toggle section");
+            toggle.setAttribute("aria-expanded", "true");
+
+            var children = document.createElement("div");
+            children.className = "post-toc-group-children";
+
+            toggle.addEventListener("click", function () {
+                var collapsed = group.classList.contains("collapsed");
+                setGroupExpanded(currentGroupMap.get(group), collapsed);
+            });
+
+            header.appendChild(toggle);
+            header.appendChild(link);
+            group.appendChild(header);
+            group.appendChild(children);
+            toc.appendChild(group);
+
+            currentGroup = {
+                root: group,
+                header: header,
+                toggle: toggle,
+                children: children,
+                link: link
+            };
+            groups.push(currentGroup);
+            groupForItem = currentGroup;
+        } else if (currentGroup) {
+            currentGroup.children.appendChild(link);
+            groupForItem = currentGroup;
+        } else {
+            toc.appendChild(link);
+            groupForItem = null;
+        }
+
+        links.push({ heading: heading, link: link, group: groupForItem });
+    });
+
+    var currentGroupMap = new Map();
+    groups.forEach(function (group) {
+        currentGroupMap.set(group.root, group);
+        if (!group.children.childElementCount) {
+            group.root.classList.add("group-leaf");
+            group.toggle.hidden = true;
+        }
     });
 
     function updateActive() {
-        var current = links[0] ? links[0].heading.id : "";
+        var current = links[0] || null;
         var offset = window.scrollY + 130;
+
         links.forEach(function (item) {
             if (item.heading.offsetTop <= offset) {
-                current = item.heading.id;
+                current = item;
             }
         });
+
         links.forEach(function (item) {
-            item.link.classList.toggle("active", item.heading.id === current);
+            item.link.classList.toggle("active", current && item.heading.id === current.heading.id);
         });
+
+        if (!current) return;
+
+        if (current.group) {
+            setGroupExpanded(current.group, true);
+        }
+
+        if (activeHeadingId !== current.heading.id) {
+            activeHeadingId = current.heading.id;
+            current.link.scrollIntoView({ block: "nearest", inline: "nearest" });
+        }
     }
 
     window.addEventListener("scroll", updateActive, { passive: true });

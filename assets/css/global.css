@@ -631,6 +631,15 @@ html[data-theme="dark"] .profile-action-btn {
 .post-toc-card {
     position: sticky;
     top: 92px;
+    max-height: calc(100vh - 108px);
+    overflow: hidden;
+}
+
+.post-toc-card .card-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    max-height: calc(100vh - 108px);
 }
 
 .post-toc-title {
@@ -645,6 +654,70 @@ html[data-theme="dark"] .profile-action-btn {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+    scroll-behavior: smooth;
+}
+
+.post-toc-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.post-toc-group-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.15rem;
+}
+
+.post-toc-group-toggle {
+    flex: 0 0 auto;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-top: 0.18rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--muted-color);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.post-toc-group-toggle:hover {
+    color: var(--text-color);
+}
+
+.post-toc-group-toggle::before {
+    content: "";
+    display: block;
+    width: 0.45rem;
+    height: 0.45rem;
+    margin: 0.14rem 0 0 0.2rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease, margin 0.2s ease;
+}
+
+.post-toc-group.collapsed .post-toc-group-toggle::before {
+    transform: rotate(-45deg);
+    margin-top: 0.28rem;
+}
+
+.post-toc-group.collapsed .post-toc-group-children {
+    display: none;
+}
+
+.post-toc-group.group-leaf .post-toc-group-toggle {
+    visibility: hidden;
+}
+
+.post-toc-group-children {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
 }
 
 .post-toc-link {
@@ -655,6 +728,25 @@ html[data-theme="dark"] .profile-action-btn {
     font-size: 0.95rem;
     text-decoration: none;
     transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.post-toc-link.toc-level-1 {
+    margin-top: 0.45rem;
+    padding-left: 0.4rem;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.post-toc-group-header .post-toc-link.toc-level-1 {
+    flex: 1 1 auto;
+    margin-top: 0;
+    padding-left: 0.2rem;
+}
+
+.post-toc-group-children .post-toc-link.toc-level-2 {
+    padding-left: 1rem;
+    font-size: 0.92rem;
 }
 
 .post-toc-link:hover {
@@ -670,8 +762,17 @@ html[data-theme="dark"] .profile-action-btn {
 }
 
 .post-toc-link.toc-level-3 {
-    padding-left: 1rem;
-    font-size: 0.9rem;
+    padding-left: 1.55rem;
+    font-size: 0.88rem;
+}
+
+.post-toc-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+.post-toc-nav::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--muted-color) 45%, transparent);
+    border-radius: 999px;
 }
 
 .card hr {
