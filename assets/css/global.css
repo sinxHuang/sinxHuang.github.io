@@ -145,6 +145,100 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 400;
 }
 
+.profile-keyword-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem 1rem;
+}
+
+.profile-keyword-title {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-right: 0.15rem;
+}
+
+.profile-keyword-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.profile-keyword-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.82rem;
+    padding: 0.22rem 0.68rem;
+    border-radius: 0.56rem;
+    border: 1px solid transparent;
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1;
+    box-shadow: 0 4px 10px rgba(31, 41, 55, 0.06);
+}
+
+.profile-keyword-chip-teal {
+    color: #4e7c81;
+    background: #e6f0ef;
+    border-color: #c9dddd;
+}
+
+.profile-keyword-chip-rose {
+    color: #a45158;
+    background: #f8e8ea;
+    border-color: #eccfd5;
+}
+
+.profile-keyword-chip-indigo {
+    color: #4b5fa6;
+    background: #e6eaf7;
+    border-color: #d2d9ef;
+}
+
+.profile-keyword-chip-amber {
+    color: #9f8331;
+    background: #f9f2d9;
+    border-color: #eadfb1;
+}
+
+.profile-keyword-chip-green {
+    color: #5b9342;
+    background: #ebf4e2;
+    border-color: #d6e5c2;
+}
+
+.profile-keyword-chip-purple {
+    color: #7b56a8;
+    background: #efe6f7;
+    border-color: #dfceed;
+}
+
+.profile-keyword-chip-orange {
+    color: #a36c43;
+    background: #f7ece2;
+    border-color: #ead8c8;
+}
+
+@media (max-width: 767.98px) {
+    .profile-keyword-group {
+        align-items: flex-start;
+        gap: 0.7rem;
+    }
+
+    .profile-keyword-title {
+        width: 100%;
+    }
+
+    .profile-keyword-chip {
+        min-height: 1.78rem;
+        font-size: 0.86rem;
+        padding: 0.2rem 0.62rem;
+    }
+}
+
 .profile-accent {
     color: var(--neon-pink);
     text-decoration: none !important;

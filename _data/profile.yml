@@ -27,14 +27,22 @@ short_bio: >-
     under the supervision of Prof.
     <a href="https://guolusjtu.github.io/guoluhomepage/" target="_blank">Guo Lu</a>.
   </p>
-  <p>
-    🔎 Currently, my research interests focus on
-    ⚡ <span class="profile-accent">acceleration for multimodal large models</span>, especially
-    <span class="profile-accent">efficient token compression</span>.
-  </p>
-  <p>
-    💬 Outside research, I enjoy 📖 reading, 🎸 listening to music, and 🎮 playing RPG/AVG games.
-  </p>
+
+research_interests:
+- label: MLLMs
+  tone: teal
+- label: Efficient AI
+  tone: rose
+- label: Model Compression
+  tone: indigo
+
+outside_research_hobbies:
+- label: Reading
+  tone: green
+- label: Music
+  tone: purple
+- label: RPG/AVG Games
+  tone: orange
 
 portrait_url: https://avatars.githubusercontent.com/u/172581617?v=4
 portrait_caption: >-

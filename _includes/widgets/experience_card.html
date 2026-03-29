@@ -6,7 +6,7 @@
                     {% if site.data.profile.education %}
                     <div class="col-lg-6">
                         <div class="mx-2 my-1">
-                            <h6>Education</h6>
+                            <h6><i class="fas fa-school section-title-icon"></i> Education</h6>
                             <ul class="list-unstyled mb-1">
                                 {% for item in site.data.profile.education %}
                                 <li class="media mb-1 align-items-center">
@@ -30,7 +30,7 @@
                         </div>
                         {% if site.data.profile.experience %}
                         <div class="mx-2 mt-3 mb-1">
-                            <h6>Experience</h6>
+                            <h6><i class="fas fa-laptop-code section-title-icon"></i> Experience</h6>
                             <ul class="list-unstyled mb-1">
                                 {% for item in site.data.profile.experience %}
                                 <li class="media mb-1 align-items-center">
@@ -61,7 +61,7 @@
                     {% if site.data.profile.awards %}
                     <div class="col-lg-6">
                         <div class="mx-2 my-1">
-                            <h6>Honors & Awards</h6>
+                            <h6><i class="fas fa-trophy section-title-icon"></i> Honors & Awards</h6>
                             <ul class="list small pl-3 mb-1">
                                 {% for item in site.data.profile.awards %}
                                 <li>
@@ -75,9 +75,7 @@
                         </div>
                     </div>
                     {% endif %}
-
                 </div>
-
             </div>
         </div>
     </div>

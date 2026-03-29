@@ -1,7 +1,7 @@
 ---
 title:          "Energy-Efficient Movable Antennas: Mechanical Power Modeling and Performance Optimization"
 date:           2025-09-24 00:01:00 +0800
-selected:       true
+selected:       false
 pub:            "arXiv"
 pub_date:       "2025"
 abstract: >-

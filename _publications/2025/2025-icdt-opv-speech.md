@@ -1,7 +1,7 @@
 ---
 title:          "Voice Recognition System for Speech-to-Text and GPT Communication Powered by Organic Photovoltaic"
 date:           2025-01-20 00:01:00 +0800
-selected:       true
+selected:       false
 pub:            "International Conference on Display Technology (ICDT)"
 pub_date:       "2025"
 abstract: >-

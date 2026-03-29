@@ -1,7 +1,7 @@
 ---
 title:          "Mechanical Power Modeling and Energy Efficiency Maximization for Movable Antenna Systems"
 date:           2025-05-09 00:01:00 +0800
-selected:       true
+selected:       false
 pub:            "IEEE Global Communications Conference (GLOBECOM)"
 pub_date:       "2025"
 abstract: >-
