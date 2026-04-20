@@ -2,8 +2,8 @@
 title:          "Energy-Efficient Movable Antennas: Mechanical Power Modeling and Performance Optimization"
 date:           2025-09-24 00:01:00 +0800
 selected:       false
-pub:            "arXiv"
-pub_date:       "2025"
+pub:            "IEEE Transactions on Wireless Communications (TWC)"
+pub_date:       ""
 abstract: >-
 
 cover:          /assets/images/covers/2025-energy-efficient-movable-antennas.png
