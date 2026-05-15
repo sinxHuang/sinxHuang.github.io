@@ -237,6 +237,20 @@ h1, h2, h3, h4, h5, h6,
         font-size: 0.86rem;
         padding: 0.2rem 0.62rem;
     }
+
+    .work-progress-body {
+        padding: 0.9rem 1rem 1.1rem;
+    }
+
+    .work-progress-item {
+        padding-left: 0;
+    }
+
+    .work-progress-role {
+        min-height: 1.78rem;
+        font-size: 0.86rem;
+        padding: 0.2rem 0.62rem;
+    }
 }
 
 .profile-accent {
@@ -926,8 +940,57 @@ h6 i,
 }
 
 .publication-section h6,
+.work-progress-section h6,
 .publication-year-list {
     margin-bottom: 0;
+}
+
+.work-progress-section {
+    border-radius: 0.8rem;
+    background: linear-gradient(180deg, var(--card-bg) 0%, var(--card-bg-deep) 100%);
+    border: 1px solid var(--card-border);
+    box-shadow:
+        0 14px 36px var(--card-shadow),
+        0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+        0 8px 20px rgba(171, 187, 206, 0.12);
+    overflow: hidden;
+}
+
+.work-progress-body {
+    padding: 1rem 1.75rem 1.3rem;
+}
+
+.work-progress-status {
+    color: #ee6a36;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-right: 0.45rem;
+}
+
+.work-progress-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem;
+    padding-left: 1.8rem;
+}
+
+.work-progress-paper {
+    font-weight: 700;
+}
+
+.work-progress-role {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.82rem;
+    padding: 0.22rem 0.68rem;
+    border: 1px solid var(--text-color);
+    border-radius: 0.42rem;
+    color: var(--text-color);
+    background: transparent;
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1;
 }
 
 .blog-section h6 {
