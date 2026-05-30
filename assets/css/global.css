@@ -223,6 +223,15 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @media (max-width: 767.98px) {
+    .education-meta-row {
+        flex-wrap: wrap;
+        gap: 0.1rem 0.5rem;
+    }
+
+    .education-position {
+        white-space: normal;
+    }
+
     .profile-keyword-group {
         align-items: flex-start;
         gap: 0.7rem;
@@ -384,6 +393,15 @@ html[data-theme="dark"] .theme-switch-thumb {
     border-radius: 0;
     flex: 0 0 24px;
     align-self: center;
+}
+
+.education-meta-row {
+    gap: 0.8rem;
+}
+
+.education-position {
+    min-width: 0;
+    white-space: nowrap;
 }
 
 .experience-logo-badge {
