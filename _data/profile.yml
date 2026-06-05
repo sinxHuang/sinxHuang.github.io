@@ -53,18 +53,23 @@ portrait_caption: >-
 
 education:
 - name: Shanghai Jiao Tong University
+  short_name: SJTU
   logo: https://cdn.urongda.com//images/normal/medium/shanghai-jiao-tong-university-logo-1024px.png
-  position: Ph.D. in Electronic and Information Engineering
+  position: Ph.D. in Electronic Information
+  short_position: Ph.D. Elec. Info.
   date: Sep. 2026 - Jun. 2031
 - name: University of Electronic Science and Technology of China
+  short_name: UESTC
   logo: https://cdn.urongda.com//images/normal/medium/university-of-electronic-science-and-technology-of-china-logo-1024px.png
   position: B.S. in Communication Engineering
+  short_position: B.S. Comm. Eng.
   date: Sep. 2022 - Jun. 2026
 
 experience:
 - name: Ant Group
   logo: /assets/images/logos/ant-group.png
   position: Research Intern
+  short_position: Research Intern
   date: Mar. 2026 - Present
 
 awards:

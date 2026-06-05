@@ -1,6 +1,25 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-white fixed-top mb-5 shadow-sm">
     <div class="{% if page.container_class %}{{ page.container_class }}{% else %}container-lg{% endif %}">
-        <a class="navbar-brand"><strong>{{site.data.profile.navbar_name}}</strong></a>
+        <a class="navbar-brand" href="{{ '/' | relative_url }}"><strong>{{site.data.profile.navbar_name}}</strong></a>
+        <div class="navbar-section-links d-none d-md-flex" aria-label="Current page sections">
+            {% if page.navbar_title == "Home" %}
+            <a class="navbar-section-link" href="#about">About</a>
+            {% if site.data.display.homepage.show_news %}
+            <a class="navbar-section-link" href="#news">News</a>
+            {% endif %}
+            {% if site.data.display.homepage.show_selected_publications %}
+            <a class="navbar-section-link" href="#selected-publications">Publications</a>
+            {% endif %}
+            <a class="navbar-section-link" href="#work-in-progress">Work</a>
+            {% elsif page.navbar_title == "Publications" %}
+            {% assign nav_pubs_by_year = site.publications | sort: "date" | reverse | group_by_exp: "item", "item.date | date: '%Y'" %}
+            {% for year in nav_pubs_by_year %}
+            <a class="navbar-section-link" href="#year-{{ year.name }}">{{ year.name }}</a>
+            {% endfor %}
+            {% elsif page.navbar_title == "CV" %}
+            <a class="navbar-section-link" href="#cv">CV</a>
+            {% endif %}
+        </div>
         <button class="navbar-toggler" style="font-size: 1em; padding: 0.5em;" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-map"></i> Menu
         </button>
