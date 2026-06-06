@@ -56,13 +56,13 @@ education:
   short_name: SJTU
   logo: https://cdn.urongda.com//images/normal/medium/shanghai-jiao-tong-university-logo-1024px.png
   position: Ph.D. in Electronic Information
-  short_position: Ph.D. Elec. Info.
+  short_position: Ph.D. Student
   date: Sep. 2026 - Jun. 2031
 - name: University of Electronic Science and Technology of China
   short_name: UESTC
   logo: https://cdn.urongda.com//images/normal/medium/university-of-electronic-science-and-technology-of-china-logo-1024px.png
   position: B.S. in Communication Engineering
-  short_position: B.S. Comm. Eng.
+  short_position: B.Eng.
   date: Sep. 2022 - Jun. 2026
 
 experience:
