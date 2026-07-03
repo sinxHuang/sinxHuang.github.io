@@ -7,7 +7,6 @@ positions:
   logo: https://cdn.urongda.com//images/normal/medium/shanghai-jiao-tong-university-logo-1024px.png
 
 email: "sinxhuang@163.com"
-cv_link: /files/Xuan_Huang_CV.pdf
 gscholar: "https://scholar.google.com/citations?user=An93EdwAAAAJ"
 github: sinxHuang
 rednote: "https://xhslink.com/m/7cjK8ALdst8"
@@ -46,8 +45,10 @@ outside_research_hobbies:
   tone: green
 - label: Music
   tone: purple
-- label: RPG/AVG Games
+- label: RPG/AVG
   tone: orange
+- label: Indie Game
+  tone: amber
 
 portrait_url: https://avatars.githubusercontent.com/u/172581617?v=4
 portrait_caption: >-

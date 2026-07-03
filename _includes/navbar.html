@@ -16,8 +16,6 @@
             {% for year in nav_pubs_by_year %}
             <a class="navbar-section-link" href="#year-{{ year.name }}">{{ year.name }}</a>
             {% endfor %}
-            {% elsif page.navbar_title == "CV" %}
-            <a class="navbar-section-link" href="#cv">CV</a>
             {% endif %}
         </div>
         <button class="navbar-toggler" style="font-size: 1em; padding: 0.5em;" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
