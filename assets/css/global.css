@@ -939,6 +939,10 @@ h6 i,
     padding-left: 1.8rem;
 }
 
+.work-progress-item + .work-progress-item {
+    margin-top: 0.8rem;
+}
+
 .work-progress-paper {
     font-weight: 700;
 }

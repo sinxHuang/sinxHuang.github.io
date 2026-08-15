@@ -23,9 +23,11 @@ short_bio: >-
     in June 2026.
   </p>
   <p>
-    🔬 My research focuses on <span class="profile-accent">MLLM inference acceleration</span>
-    and <span class="profile-accent">Efficient AI</span>. I am also exploring
-    <span class="profile-accent">multimodal agents</span> and seeking internship and collaboration opportunities.
+    🔬 My research focuses on <span class="profile-accent">Multimodal Large Language Models</span> and
+    <span class="profile-accent">Efficient AI</span>, and I am particularly interested in
+    <span class="profile-accent">Real-Time Streaming MLLMs</span> and
+    <span class="profile-accent">Multimodal Agents</span>.
+    I am seeking internship and collaboration opportunities.
     Please feel free to contact me!
   </p>
   <p>
@@ -37,7 +39,7 @@ research_interests:
   tone: teal
 - label: Efficient AI
   tone: rose
-- label: Agentic AI
+- label: Streaming Video
   tone: indigo
 
 outside_research_hobbies:
