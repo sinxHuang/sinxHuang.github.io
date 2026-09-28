@@ -14,5 +14,5 @@ authors:
   - Z. Chen
   - B. Ning
 links:
-  PDF: https://arxiv.org/pdf/2505.05914
+  Paper: https://arxiv.org/abs/2505.05914
 ---
