@@ -28,5 +28,7 @@ navbar_title: Home
         {% endif %}
 
         {% include widgets/work_in_progress_card.html %}
+        {% include widgets/profile_history_card.html items=site.data.profile.experience title="Experience" id="experience" icon="fa-briefcase" %}
+        {% include widgets/profile_history_card.html items=site.data.profile.education title="Education" id="education" icon="fa-graduation-cap" %}
     </div>
 </div>

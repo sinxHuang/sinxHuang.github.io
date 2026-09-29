@@ -1,0 +1,24 @@
+{% if include.items and include.items.size > 0 %}
+<section class="my-3 profile-history-card">
+    <h6 class="border-bottom border-gray p-3 mb-0 section-anchor" id="{{ include.id }}">
+        <i class="fas {{ include.icon }} section-title-icon"></i> {{ include.title }}
+    </h6>
+    <ul class="profile-history-list">
+        {% for item in include.items %}
+        <li class="profile-history-item">
+            {% if item.logo %}
+            <img class="profile-history-logo" src="{% if item.logo contains '://' %}{{ item.logo }}{% else %}{{ item.logo | relative_url }}{% endif %}" alt="{{ item.name }}" loading="lazy">
+            {% endif %}
+            <div class="profile-history-content">
+                <h3>{{ item.name }}</h3>
+                <div class="profile-history-meta">
+                    <span>{{ item.position }}{% if item.focus %} &mdash; Research focus: {{ item.focus }}{% endif %}{% if item.supervisor %} &mdash; Supervisor: {% if item.supervisor_url %}<a href="{{ item.supervisor_url }}" target="_blank" rel="noopener noreferrer">{{ item.supervisor }}</a>{% else %}{{ item.supervisor }}{% endif %}{% endif %}</span>
+                    <span class="profile-history-date">{{ item.date }}</span>
+                </div>
+                {% if item.dept %}<p>{{ item.dept }}</p>{% endif %}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}

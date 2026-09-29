@@ -7,7 +7,7 @@ navbar_title: Publications
 {% assign pubs_by_year = site.publications | sort: "date" | reverse | group_by_exp: "item", "item.date | date: '%Y'" %}
 
 <div class="row">
-    <aside class="col-lg-3 mb-3 mb-lg-0">
+    <aside class="col-12 col-lg-3 mb-3 mb-lg-0">
         {% include widgets/left_sidebar_profile.html %}
     </aside>
 

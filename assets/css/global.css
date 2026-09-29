@@ -24,6 +24,11 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Bootstrap supplies scrollbar compensation while a modal is open. */
+html:has(body.modal-open) {
+    scrollbar-gutter: auto;
+}
+
 html[data-theme="dark"] {
     --bg-color: #030917;
     --text-color: #dce7ff;
@@ -296,6 +301,7 @@ html[data-theme="dark"] .navbar.bg-white {
 }
 
 .navbar-section-links {
+    flex-wrap: wrap;
     align-items: center;
     gap: 0.35rem;
     min-width: 0;
@@ -526,6 +532,91 @@ html[data-theme="dark"] .profile-action-btn {
     gap: 1rem;
 }
 
+@media (min-width: 992px) {
+    .left-profile-sidebar {
+        position: sticky;
+        top: 5rem;
+        max-height: calc(100dvh - 6rem);
+        overflow-y: auto;
+        scrollbar-width: thin;
+    }
+}
+
+.left-profile-details {
+    width: 80%;
+    margin: 1rem auto 0.75rem;
+    text-align: left;
+    font-size: 0.76rem;
+    line-height: 1.4;
+}
+
+.left-profile-details > div {
+    display: flex;
+    align-items: baseline;
+    gap: 0.65rem;
+    margin-top: 0.4rem;
+    padding: 0 0.6rem;
+}
+
+.left-profile-details i {
+    width: 1.25rem;
+    flex-shrink: 0;
+    text-align: center;
+    color: var(--muted-color);
+}
+
+.left-profile-interests::before {
+    content: "";
+    display: block;
+    width: 44%;
+    height: 1px;
+    margin: 0.85rem auto;
+    background: var(--card-border);
+}
+
+.left-profile-interests .profile-keyword-title {
+    font-size: 0.78rem;
+    white-space: normal;
+    margin-bottom: 0.5rem;
+    color: var(--muted-color);
+}
+
+.left-profile-interests {
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.left-profile-interest-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.left-profile-interest-list .profile-keyword-chip {
+    max-width: 100%;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.73rem;
+    line-height: 1.4;
+    text-align: left;
+    justify-content: flex-start;
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.wechat-modal-dialog {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 2rem);
+}
+
 .left-profile-panel {
     border: 1px solid var(--card-border);
     border-radius: 1rem;
@@ -574,12 +665,28 @@ html[data-theme="dark"] .profile-action-btn {
     line-height: 1.35;
 }
 
+.left-profile-affiliation {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.left-profile-affiliation-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
 .left-profile-email {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.42rem;
     max-width: 100%;
+    width: 100%;
     margin-top: 0.95rem;
     padding: 0.36rem 0.58rem;
     border: 1px solid var(--card-border);
@@ -610,25 +717,114 @@ html[data-theme="dark"] .profile-action-btn {
 
 .left-profile-socials {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
-    gap: 0.45rem;
-    margin-top: 0.75rem;
+    gap: 0.35rem;
+    width: 80%;
+    margin: 0.45rem auto 0;
 }
 
 .left-profile-social-link {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 2.1rem;
-    height: 2.1rem;
-    border: 1px solid var(--card-border);
-    border-radius: 0.7rem;
+    justify-content: flex-start;
+    gap: 0.65rem;
+    width: 100%;
+    min-height: 1.9rem;
+    padding: 0.32rem 0.6rem;
+    font-size: 0.78rem;
+    line-height: 1.3;
+    border: 1px solid color-mix(in srgb, var(--card-border) 60%, transparent);
+    border-radius: 6px;
     color: var(--link-color) !important;
     background: color-mix(in srgb, var(--card-bg) 76%, transparent);
     text-decoration: none !important;
     cursor: pointer;
     transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.left-profile-social-link i {
+    width: 1.25rem;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.left-profile-social-link span {
+    color: var(--text-color);
+    overflow-wrap: anywhere;
+}
+
+.social-icon-scholar { color: #65b9ff; }
+.social-icon-github { color: var(--text-color); }
+.social-icon-rednote { color: #e53935; }
+.social-icon-wechat { color: #07b75b; }
+
+.profile-history-card {
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    background: var(--card-bg);
+    box-shadow: 0 10px 24px var(--card-shadow);
+    overflow: hidden;
+}
+
+.profile-history-list {
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+}
+
+.profile-history-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-history-item + .profile-history-item {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--card-border);
+}
+
+.profile-history-logo {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.profile-history-content {
+    min-width: 0;
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.profile-history-content h3 {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0 0 0.3rem;
+}
+
+.profile-history-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    font-size: 0.82rem;
+}
+
+.profile-history-date {
+    color: var(--muted-color);
+}
+
+.profile-history-content p {
+    margin: 0.3rem 0 0;
+    font-size: 0.82rem;
+}
+
+@media (max-width: 575.98px) {
+    .profile-history-list { padding: 1rem; }
+    .profile-history-item { gap: 0.75rem; align-items: flex-start; }
+    .profile-history-logo { width: 44px; height: 44px; }
 }
 
 .left-profile-social-link:hover {

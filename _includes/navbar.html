@@ -11,6 +11,12 @@
             <a class="navbar-section-link" href="#selected-publications">Publications</a>
             {% endif %}
             <a class="navbar-section-link" href="#work-in-progress">Work</a>
+            {% if site.data.profile.experience %}
+            <a class="navbar-section-link" href="#experience">Experience</a>
+            {% endif %}
+            {% if site.data.profile.education %}
+            <a class="navbar-section-link" href="#education">Education</a>
+            {% endif %}
             {% elsif page.navbar_title == "Publications" %}
             {% assign nav_pubs_by_year = site.publications | sort: "date" | reverse | group_by_exp: "item", "item.date | date: '%Y'" %}
             {% for year in nav_pubs_by_year %}
